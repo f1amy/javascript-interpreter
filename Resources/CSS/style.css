@@ -1,0 +1,137 @@
+body {
+    background: linear-gradient(to right, red, orange, yellow, green, cyan, blue, purple);
+    animation: rainbow 30s linear alternate infinite;
+    background-size: 6500% 100%;
+}
+
+@keyframes rainbow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 50% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.buttons-bar {
+    width: calc(100% - 12px);
+    padding: 8px;
+    padding-right: 0px;
+    background-color: rgba(255, 255, 255, 0.85);
+    border: 2px solid rgba(211, 211, 211, 0.85);
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.buttons-bar span {
+    color: gray;
+    font-size: 18px;
+    font-family: 'Open Sans', Arial, Helvetica Neue, sans-serif;
+}
+
+.buttons-bar button {
+    font-size: 15px;
+    margin-right: 8px;
+}
+
+button {
+    background-color: white;
+    border: 2px gray solid;
+    padding: 5px;
+}
+
+button:hover {
+    cursor: pointer;
+    background: lightgray;
+}
+
+.pre-author {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 12px;
+    text-align: right;
+}
+
+.author {
+    background-color: rgba(255, 255, 255, 0.85);
+    border: 2px solid rgba(211, 211, 211, 0.85);
+    color: gray;
+    padding: 5px;
+    font-size: 1.25em;
+    font-family: 'Open Sans', Arial, Helvetica Neue, sans-serif;
+    text-decoration: none;
+}
+
+.area-wrapper {
+    font-size: 32px;
+    width: 100%;
+    height: 100%;
+}
+
+.area-wrapper textarea {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 2px solid rgba(211, 211, 211, 0.85);
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 16px;
+    padding: 8px;
+    resize: none;
+    width: calc(50% - 24px);
+    height: 625px;
+}
+
+.left-textarea {
+    float: left;
+}
+
+.right-textarea {
+    float: right;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.code-wrap {
+    display: inline;
+    font-family: Consolas, "Courier New", monospace;
+    background-color: rgba(135, 206, 250, 0.4);
+    color: black;
+    padding: 3px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.center {
+    text-align: center;
+    margin: 0 auto;
+}
+
+h3:first-child {
+    margin-bottom: 8px;
+    background-color: rgba(255, 255, 255, 0.85);
+    border: 2px solid rgba(211, 211, 211, 0.85);
+}
+
+dl {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    background-color: rgba(255, 255, 255, 0.85);
+    border: 2px solid rgba(211, 211, 211, 0.85);
+}
+
+dl > .code-wrap{
+    margin-left: 10px;
+}
+
+h3,
+dt,
+dd {
+    font-family: Arial, Helvetica, sans-serif;
+    color: grey;
+    padding: 10px;
+}

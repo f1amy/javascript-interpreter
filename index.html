@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>JavaScript Interpreter</title>
+	<meta charset="utf-8" />
+	<link rel="icon" type="image/png" href="Resources/Images/favicon.png">
+	<link rel="stylesheet" type="text/css" href="Resources/CSS/style.css">
+	<meta name="description" content="Programming on JavaScript anywhere, nothing to install, works in any browser.">
+	<script type="text/javascript" src="Resources/JS/script.js"></script>
+	<script type="text/javascript" src="Resources/JS/cookie.js"></script>
+</head>
+
+<body onload="RestoreJSCodeFromCookie();">
+	<noscript>
+		<h1 class="center">Your browser does not support JavaScript! Or it's not enabled. Please fix it and return.</h1>
+	</noscript>
+	<div class="wrapper">
+		<h3 class="center">Welcome to JavaScript Interpreter! Type your code into the left text area and click &laquo;Run code&raquo;!
+			<br>If you wish, you can &laquo;Clear left area&raquo; or &laquo;Clear right area&raquo;. Also you can &laquo;Download code&raquo;.</h3>
+		<div class="buttons-bar">
+			<button onclick="RunJSCode();">Run code</button>
+			<button onclick="SaveJSCodeToCookie();">Save code to cache</button>
+			<button onclick="ClearLeftArea();">Clear left text area</button>
+			<button onclick="ClearRightArea();">Clear right text area</button>
+			<button onclick="DownloadJSCode();">Download current code</button>
+			<span>Last completion time:
+				<b id="completion-time">None</b>.</span>
+		</div>
+		<div class="area-wrapper">
+			<textarea placeholder="Type your code here..." spellcheck="false" onchange="SaveJSCodeToCookie();" autofocus name="code-input"
+			    id="left-textarea"></textarea>
+			<textarea placeholder="Here will be the result or error message..." spellcheck="false" name="code-output" readonly id="right-textarea"></textarea>
+		</div>
+		<dl>
+			<dt class="clearfix">There is two special JavaScript functions:</dt>
+			<dt class="code-wrap bold">write(text);</dt>
+			<dd>Writes
+				<i class="code-wrap">text</i> to the right text area;</dd>
+			<dt class="code-wrap bold">writeln(text);</dt>
+			<dd>Writes
+				<i class="code-wrap">text</i> to the right text area from a new line.</dd>
+		</dl>
+	</div>
+	<p class="pre-author">
+		<a target="_blank" href="https://github.com/F1amy" class="author">By F1amy with ❤️ in 2018</a>
+	</p>
+</body>
+
+</html>
