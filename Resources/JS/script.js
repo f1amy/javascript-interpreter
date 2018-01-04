@@ -56,5 +56,7 @@ function SaveJSCodeToCookie() {
 
 function RestoreJSCodeFromCookie() {
     let data = getCookie('jscode');
-    document.getElementById("left-textarea").value = data;
+	if (data != undefined) {
+		document.getElementById("left-textarea").value = data;
+	}
 }
