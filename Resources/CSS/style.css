@@ -79,7 +79,7 @@ button:hover {
     padding: 8px;
     resize: none;
     width: calc(50% - 24px);
-    height: 625px;
+    height: 570px;
 }
 
 .left-textarea {
