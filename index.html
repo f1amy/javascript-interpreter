@@ -7,11 +7,12 @@
 	<link rel="icon" type="image/png" href="Resources/Images/favicon.png">
 	<link rel="stylesheet" type="text/css" href="Resources/CSS/style.css">
 	<meta name="description" content="Programming on JavaScript anywhere, nothing to install, works in any browser.">
-	<script type="text/javascript" src="Resources/JS/script.js"></script>
+	<script type="text/javascript" src="Resources/JS/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="Resources/JS/cookie.js"></script>
+	<script type="text/javascript" src="Resources/JS/application.js"></script>
 </head>
 
-<body onload="RestoreJSCodeFromCookie();">
+<body onload="RestoreJSCodeFromCookie(); /*computeTextareaHeight();*/" onunload="SaveJSCodeToCookie();">
 	<noscript>
 		<h1 class="center">Your browser does not support JavaScript! Or it's not enabled. Please fix it and return.</h1>
 	</noscript>
@@ -28,23 +29,23 @@
 				<b id="completion-time">None</b>.</span>
 		</div>
 		<div class="area-wrapper">
-			<textarea placeholder="Type your code here..." spellcheck="false" onchange="SaveJSCodeToCookie();" autofocus name="code-input"
-			    id="left-textarea"></textarea>
+			<textarea placeholder="Type your code here..." spellcheck="false" autofocus name="code-input" id="left-textarea"></textarea>
 			<textarea placeholder="Here will be the result or error message..." spellcheck="false" name="code-output" readonly id="right-textarea"></textarea>
+			<div class="clearfix"></div>
 		</div>
 		<dl>
-			<dt class="clearfix">There is two special JavaScript functions:</dt>
+			<dt>There is two special JavaScript functions:</dt>
 			<dt class="code-wrap bold">write(text);</dt>
 			<dd>Writes
 				<i class="code-wrap">text</i> to the right text area;</dd>
 			<dt class="code-wrap bold">writeln(text);</dt>
 			<dd>Writes
 				<i class="code-wrap">text</i> to the right text area from a new line.</dd>
+			<p class="pre-author">
+				<a target="_blank" href="https://github.com/F1amy" class="author">Created by @f1amy with ❤️ in 2018.</a>
+			</p>
 		</dl>
 	</div>
-	<p class="pre-author">
-		<a target="_blank" href="https://github.com/F1amy" class="author">By F1amy with ❤️ in 2018</a>
-	</p>
 </body>
 
 </html>

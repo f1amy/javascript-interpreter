@@ -1,7 +1,12 @@
 body {
-    background: linear-gradient(to right, red, orange, yellow, green, cyan, blue, purple);
+    background: linear-gradient(to right, #ff0000, #ffa500, #ffff00, #008000, #00ffff, #0000ff, #800080);
     animation: rainbow 30s linear alternate infinite;
     background-size: 6500% 100%;
+    margin: 10px;
+}
+
+textarea {
+    height: auto;
 }
 
 @keyframes rainbow {
@@ -17,17 +22,17 @@ body {
 }
 
 .buttons-bar {
-    width: calc(100% - 12px);
-    padding: 8px;
+    width: calc(100% - 14px);
+    padding: 10px;
     padding-right: 0px;
-    background-color: rgba(255, 255, 255, 0.85);
-    border: 2px solid rgba(211, 211, 211, 0.85);
-    margin-top: 8px;
-    margin-bottom: 8px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(211, 211, 211, 0.9);
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .buttons-bar span {
-    color: gray;
+    color: #808080;
     font-size: 18px;
     font-family: 'Open Sans', Arial, Helvetica Neue, sans-serif;
 }
@@ -38,27 +43,33 @@ body {
 }
 
 button {
-    background-color: white;
-    border: 2px gray solid;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px rgba(128, 128, 128, 0.9) solid;
     padding: 5px;
 }
 
 button:hover {
     cursor: pointer;
-    background: lightgray;
+    background: #d3d3d3;
 }
 
 .pre-author {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: inline-block;
     width: 100%;
-    margin-top: 10px;
-    margin-bottom: 12px;
+    margin: 0;
     text-align: right;
 }
 
 .author {
-    background-color: rgba(255, 255, 255, 0.85);
-    border: 2px solid rgba(211, 211, 211, 0.85);
-    color: gray;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(211, 211, 211, 0.9);
+    color: #808080;
     padding: 5px;
     font-size: 1.25em;
     font-family: 'Open Sans', Arial, Helvetica Neue, sans-serif;
@@ -69,24 +80,48 @@ button:hover {
     font-size: 32px;
     width: 100%;
     height: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .area-wrapper textarea {
     background-color: rgba(255, 255, 255, 0.95);
-    border: 2px solid rgba(211, 211, 211, 0.85);
+    border: 2px solid rgba(211, 211, 211, 0.95);
     font-family: Consolas, "Courier New", monospace;
     font-size: 16px;
-    padding: 8px;
+    padding: 10px;
     resize: none;
-    width: calc(50% - 24px);
-    height: 570px;
+    caret-color: rgba(135, 207, 235, 0.95);
+    width: calc(50% - 30px); /*50% - 28px*/
+    height: 594px;
+
+    /*
+    min-height: 50%;
+    height: 60%;
+    */
 }
 
-.left-textarea {
+::selection {
+    background-color: rgba(132, 204, 249, 0.9);
+}
+
+.author:focus,
+button:focus,
+textarea:focus {
+    outline: none;
+    border: 2px solid rgba(0, 0, 0, 0.9);
+}
+
+button:focus,
+textarea:focus {
+    background-color: #ffffff;
+}
+
+#left-textarea {
     float: left;
 }
 
-.right-textarea {
+#right-textarea {
     float: right;
 }
 
@@ -97,8 +132,8 @@ button:hover {
 .code-wrap {
     display: inline;
     font-family: Consolas, "Courier New", monospace;
-    background-color: rgba(135, 206, 250, 0.4);
-    color: black;
+    background-color: rgba(135, 206, 250, 0.6);
+    color: #000000;
     padding: 3px;
 }
 
@@ -108,23 +143,24 @@ button:hover {
 
 .center {
     text-align: center;
-    margin: 0 auto;
 }
 
 h3:first-child {
-    margin-bottom: 8px;
-    background-color: rgba(255, 255, 255, 0.85);
-    border: 2px solid rgba(211, 211, 211, 0.85);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(211, 211, 211, 0.9);
 }
 
 dl {
-    margin-top: 0px;
-    margin-bottom: 0px;
-    background-color: rgba(255, 255, 255, 0.85);
-    border: 2px solid rgba(211, 211, 211, 0.85);
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid #d3d3d3cc;
 }
 
-dl > .code-wrap{
+dl>.code-wrap {
     margin-left: 10px;
 }
 
@@ -132,6 +168,6 @@ h3,
 dt,
 dd {
     font-family: Arial, Helvetica, sans-serif;
-    color: grey;
+    color: #808080;
     padding: 10px;
 }
