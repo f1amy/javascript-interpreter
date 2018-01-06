@@ -1,3 +1,2 @@
 # javascript-interpreter
-Simple online JavaScript interpreter with some functions. Edit
-Add topics
+Simple online JavaScript interpreter with some functions.

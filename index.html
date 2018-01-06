@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 
 <head>
 	<title>JavaScript Interpreter</title>
@@ -7,9 +7,10 @@
 	<link rel="icon" type="image/png" href="Resources/Images/favicon.png">
 	<link rel="stylesheet" type="text/css" href="Resources/CSS/style.css">
 	<meta name="description" content="Programming on JavaScript anywhere, nothing to install, works in any browser.">
-	<script type="text/javascript" src="Resources/JS/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="Resources/JS/cookie.js"></script>
-	<script type="text/javascript" src="Resources/JS/application.js"></script>
+	<link rel="manifest" href="Resources/manifest.json">
+	<script src="Resources/JS/jquery-3.2.1.min.js"></script>
+	<script src="Resources/JS/cookie.js"></script>
+	<script src="Resources/JS/application.js"></script>
 </head>
 
 <body onload="RestoreJSCodeFromCookie(); /*computeTextareaHeight();*/" onunload="SaveJSCodeToCookie();">
@@ -33,18 +34,18 @@
 			<textarea placeholder="Here will be the result or error message..." spellcheck="false" name="code-output" readonly id="right-textarea"></textarea>
 			<div class="clearfix"></div>
 		</div>
-		<dl>
-			<dt>There is two special JavaScript functions:</dt>
-			<dt class="code-wrap bold">write(text);</dt>
-			<dd>Writes
-				<i class="code-wrap">text</i> to the right text area;</dd>
-			<dt class="code-wrap bold">writeln(text);</dt>
-			<dd>Writes
-				<i class="code-wrap">text</i> to the right text area from a new line.</dd>
-			<p class="pre-author">
-				<a target="_blank" href="https://github.com/F1amy" class="author">Created by @f1amy with ❤️ in 2018.</a>
-			</p>
-		</dl>
+		<div class="info">
+			<p>There is two special JavaScript functions:</p>
+			<p class="code-wrap bold left-margin_1lvl">write(text);</p>
+			<p class="left-margin_2lvl">Writes
+				<i class="code-wrap">text</i> to the right text area;</p>
+			<p class="code-wrap bold left-margin_1lvl">writeln(text);</p>
+			<p class="left-margin left-margin_2lvl">Writes
+				<i class="code-wrap">text</i> to the right text area from a new line.</p>
+			<span class="pre-author">
+				<a target="_blank" rel="noopener" href="https://github.com/F1amy" class="author">Created by @f1amy with ❤️ in 2018.</a>
+			</span>
+		</div>
 	</div>
 </body>
 
