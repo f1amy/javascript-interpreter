@@ -1,22 +1,6 @@
-body {
-    background-color: #ff4500;
-    background: linear-gradient(to right, #ff0000, #ffa500, #ffff00, #008000, #0000ff, #4b0082, #ee82ee);
-    animation: rainbow 30s linear alternate infinite;
-    background-size: 3000% 100%;
-    margin: 10px;
-}
-
-textarea {
-    height: auto;
-}
-
-noscript h1 {
-    text-align: center;
-}
-
 @keyframes rainbow {
     0% {
-        background-position: 0% 50%;
+        background-position: 0 50%;
     }
     50% {
         background-position: 50% 50%;
@@ -26,18 +10,33 @@ noscript h1 {
     }
 }
 
+body {
+    background-color: #ff4500;
+    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    animation: rainbow 30s linear alternate infinite;
+    background-size: 3000% 100%;
+    margin: 10px;
+}
+
+noscript h1 {
+    text-align: center;
+}
+
+.buttons-bar,
+button {
+    background-color: rgba(255, 255, 255, .9);
+}
+
 .buttons-bar {
     width: calc(100% - 14px);
-    padding: 10px;
-    padding-right: 0px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border: 2px solid rgba(211, 211, 211, 0.9);
     margin-top: 10px;
     margin-bottom: 10px;
+    padding: 10px 0 10px 10px;
+    border: 2px solid rgba(211, 211, 211, .9);
 }
 
 .buttons-bar span {
-    color: #808080;
+    color: gray;
     font-family: 'Open Sans', Arial, 'Helvetica Neue', sans-serif;
 }
 
@@ -46,8 +45,7 @@ noscript h1 {
 }
 
 button {
-    background-color: rgba(255, 255, 255, 0.9);
-    border: 2px rgba(128, 128, 128, 0.9) solid;
+    border: 2px rgba(128, 128, 128, .9) solid;
     padding: 5px;
 }
 
@@ -70,16 +68,14 @@ button:hover {
     position: absolute;
     right: 10px;
     bottom: 10px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border: 2px solid rgba(211, 211, 211, 0.9);
-    color: #808080;
+    background-color: rgba(255, 255, 255, .9);
+    border: 2px solid rgba(211, 211, 211, .9);
+    color: gray;
     padding: 5px;
     font-size: 18px;
     font-family: 'Open Sans', Arial, 'Helvetica Neue', sans-serif;
     text-decoration: none;
 }
-
-
 
 .area-wrapper {
     width: 100%;
@@ -90,38 +86,33 @@ button:hover {
 
 .area-wrapper textarea {
     tab-size: 4;
-    background-color: rgba(255, 255, 255, 0.95);
-    border: 2px solid rgba(211, 211, 211, 0.95);
+    background-color: rgba(255, 255, 255, .95);
+    border: 2px solid rgba(211, 211, 211, .95);
     font-family: Consolas, 'Courier New', monospace;
     font-size: medium;
     padding: 10px;
     resize: vertical;
-    caret-color: rgba(135, 207, 235, 0.95);
+    caret-color: rgba(135, 207, 235, .95);
     width: calc(50% - 30px);
-    /*50% - 28px*/
     min-height: 307px;
     max-height: 536px;
     height: auto;
-    /*
-    min-height: 50%;
-    height: 60%;
-    */
 }
 
 ::selection {
-    background-color: rgba(132, 204, 249, 0.9);
+    background-color: rgba(132, 204, 249, .9);
 }
 
 .author:focus,
 button:focus,
 textarea:focus {
     outline: none;
-    border: 2px solid rgba(0, 0, 0, 0.9);
+    border: 2px solid rgba(0, 0, 0, .9);
 }
 
 button:focus,
 textarea:focus {
-    background-color: #ffffff;
+    background-color: white;
 }
 
 #left-textarea {
@@ -136,24 +127,26 @@ textarea:focus {
     clear: both;
 }
 
+.info,
 h3 {
     margin-top: 10px;
-    text-align: center;
     margin-bottom: 10px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border: 2px solid rgba(211, 211, 211, 0.9);
+    background-color: rgba(255, 255, 255, .9);
+}
+
+h3 {
+    text-align: center;
+    border: 2px solid rgba(211, 211, 211, .9);
 }
 
 .info {
     position: relative;
-    margin-top: 10px;
-    margin-bottom: 10px;
     padding-left: 10px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border: 2px solid rgba(211, 211, 211, 0.8);
+    border: 2px solid rgba(211, 211, 211, .8);
 }
 
 .left-margin_1lvl {
+    font-weight: bold;
     margin-left: 25px;
 }
 
@@ -168,21 +161,17 @@ h3 {
     margin-left: 50px;
 }
 
-h3,
-.info p {
+.info p,
+h3 {
     font-family: Arial, Helvetica, sans-serif;
-    color: #808080;
+    color: gray;
     padding: 10px;
-}
-
-.bold {
-    font-weight: bold;
 }
 
 .code-wrap {
     display: inline;
     font-family: Consolas, 'Courier New', monospace !important;
-    background-color: rgba(135, 206, 250, 0.6);
-    color: #000000;
+    background-color: rgba(135, 206, 250, .6);
+    color: black;
     padding: 3px;
 }
