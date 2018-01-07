@@ -12,7 +12,7 @@
 
 body {
     background-color: #ff4500;
-    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    background: linear-gradient(to right, red, orange, yellow, #41c903, #2ac3fc, #0000ff, #5630c3);
     animation: rainbow 30s linear alternate infinite;
     background-size: 3000% 100%;
     margin: 10px;
@@ -22,17 +22,13 @@ noscript h1 {
     text-align: center;
 }
 
-.buttons-bar,
-button {
-    background-color: rgba(255, 255, 255, .9);
-}
-
 .buttons-bar {
     width: calc(100% - 14px);
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 10px 0 10px 10px;
     border: 2px solid rgba(211, 211, 211, .9);
+    background-color: rgba(255, 255, 255, .9);
 }
 
 .buttons-bar span {
@@ -41,27 +37,22 @@ button {
 }
 
 .buttons-bar button {
-    margin-right: 8px;
-}
-
-button {
-    border: 2px rgba(128, 128, 128, .9) solid;
+    margin-right: 10px;
+    background-color: rgba(255, 255, 255, .9);
+    border: 2px solid rgba(128, 128, 128, .9);
     padding: 5px;
 }
 
-button:hover {
+.buttons-bar button:hover {
     cursor: pointer;
     background: #d3d3d3;
 }
 
-.pre-author {
+address {
     position: absolute;
     bottom: 0;
     left: 0;
-    display: inline-block;
     width: 100%;
-    margin: 0;
-    text-align: right;
 }
 
 .author {
@@ -95,7 +86,7 @@ button:hover {
     caret-color: rgba(135, 207, 235, .95);
     width: calc(50% - 30px);
     min-height: 307px;
-    max-height: 536px;
+    max-height: 499px;
     height: auto;
 }
 
@@ -127,22 +118,27 @@ textarea:focus {
     clear: both;
 }
 
-.info,
-h3 {
+header {
     margin-top: 10px;
     margin-bottom: 10px;
     background-color: rgba(255, 255, 255, .9);
-}
-
-h3 {
-    text-align: center;
     border: 2px solid rgba(211, 211, 211, .9);
 }
 
+header h3,
+header h4 {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: gray;
+}
+
 .info {
+    margin-top: 10px;
+    margin-bottom: 10px;
     position: relative;
     padding-left: 10px;
-    border: 2px solid rgba(211, 211, 211, .8);
+    background-color: rgba(255, 255, 255, .9);
+    border: 2px solid rgba(211, 211, 211, .9);
 }
 
 .left-margin_1lvl {
@@ -161,8 +157,7 @@ h3 {
     margin-left: 50px;
 }
 
-.info p,
-h3 {
+.info p {
     font-family: Arial, Helvetica, sans-serif;
     color: gray;
     padding: 10px;

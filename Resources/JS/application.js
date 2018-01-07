@@ -1,30 +1,22 @@
-$(document).ready(function () {
+document.addEventListener('DOMContentLoaded', function () {
     RestoreJSCodeFromCookie();
 
-    $(window).on('unload', function () {
-        SaveJSCodeToCookie();
-    });
+    window.addEventListener("beforeunload", SaveJSCodeToCookie);
 
-    $('#save-code').on('click', function () {
-        SaveJSCodeToCookie();
-    });
+    document.getElementById('save-code').addEventListener('click', SaveJSCodeToCookie);
 
-    $('#restore-code').on('click', function () {
-        RestoreJSCodeFromCookie();
-    });
+    document.getElementById('restore-code').addEventListener('click', RestoreJSCodeFromCookie);
 
-    $('#clear-right-area').on('click', function () {
-        ClearRightArea();
-    });
+    document.getElementById('clear-right-area').addEventListener('click', ClearRightArea);
 
-    $('#left-textarea').keydown(function (event) {
+    document.getElementById('left-textarea').addEventListener('keydown', function (event) {
         if (event.keyCode != 9) {
             return;
         }
 
         event.preventDefault();
 
-        let obj = $(this)[0];
+        let obj = this;
         let start = obj.selectionStart;
         let end = obj.selectionEnd;
         let before = obj.value.substring(0, start);
@@ -34,50 +26,50 @@ $(document).ready(function () {
         obj.setSelectionRange(start + 1, start + 1);
     });
 
-    $('#run-code').on('click', function () {
-        if ($('#left-textarea').val() != '') {
+    document.getElementById('run-code').addEventListener('click', function () {
+        let leftTextArea = document.getElementById('left-textarea');
+        let rightTextArea = document.getElementById('right-textarea');
+
+        if (leftTextArea.value != '') {
             try {
                 ClearRightArea();
 
                 let timeSpent = performance.now();
-                let result = eval($('#left-textarea').val());
+                let result = eval(leftTextArea.value);
 
                 timeSpent = performance.now() - timeSpent;
 
-                $('#completion-time').text(timeSpent.toFixed(3) + 'ms');
+                document.getElementById('completion-time').innerHTML = timeSpent.toFixed(3) + 'ms';
 
                 if (result != undefined) {
-                    let rightAreaContent = $('#right-textarea').val();
-                    rightAreaContent += result;
-                    $('#right-textarea').val(rightAreaContent);
+                    rightTextArea.value += result;
                 }
             } catch (error) {
-                let rightAreaContent = $('#right-textarea').val();
-
-                rightAreaContent += `Uncaught ${error.name}: ${error.message}.`;
-                $('#right-textarea').val(rightAreaContent);
+                rightTextArea.value += `Uncaught ${error.name}: ${error.message}.`;
             }
         }
     });
 
-    $('#clear-left-area').on('click', function () {
+    document.getElementById('clear-left-area').addEventListener('click', function () {
         let answer = confirm('Do you really want to clear the text from the left text area?\nAll your code will be lost!');
+        let leftTextArea = document.getElementById('left-textarea');
 
-        if ($('#left-textarea').val() != '') {
+        if (leftTextArea.value != '') {
             if (answer == true) {
-                $('#left-textarea').val('');
-                SaveJSCodeToCookie();
+                leftTextArea.value = '';
             }
         }
     });
 
-    $('#download-code').on('click', function () {
-        if ($('#left-textarea').val() != '') {
-            let fileContent = $('#left-textarea').val();
-            let fileName = 'Your JavaScript code.js';
-            let fileLink = window.document.createElement("a");
+    document.getElementById('download-code').addEventListener('click', function () {
+        let leftTextArea = document.getElementById('left-textarea');
 
-            fileLink.href = window.URL.createObjectURL(new Blob([fileContent], {
+        if (leftTextArea.value != '') {
+            let fileContent = leftTextArea.value;
+            let fileName = 'JavaScript code.js';
+            let fileLink = document.createElement("a");
+
+            fileLink.href = URL.createObjectURL(new Blob([fileContent], {
                 type: 'text/javascript'
             }));
 
@@ -90,7 +82,7 @@ $(document).ready(function () {
 });
 
 function SaveJSCodeToCookie() {
-    let code = $('#left-textarea').val();
+    let code = document.getElementById('left-textarea').value;
 
     if (code != getCookie('jscode')) {
         let date = new Date();
@@ -110,7 +102,7 @@ function RestoreJSCodeFromCookie() {
     let code = getCookie('jscode');
 
     if (code != undefined && code != '') {
-        $('#left-textarea').val(code);
+        document.getElementById('left-textarea').value = code;
         console.log('Code restored successfully.');
     } else {
         console.log('No code found for restore.');
@@ -118,21 +110,17 @@ function RestoreJSCodeFromCookie() {
 }
 
 function write(text) {
-    let code = $('#right-textarea').val();
-
-    code += `${text}`;
-    $('#right-textarea').val(code);
+    document.getElementById('right-textarea').value += `${text}`;
 }
 
 function writeln(text) {
-    let code = $('#right-textarea').val();
-
-    code += `${text}\n`;
-    $('#right-textarea').val(code);
+    document.getElementById('right-textarea').value += `${text}\n`;
 }
 
 function ClearRightArea() {
-    if ($('#right-textarea').val() != '') {
-        $('#right-textarea').val('');
+    let rightTextArea = document.getElementById('right-textarea');
+
+    if (rightTextArea.value != '') {
+        rightTextArea.value = '';
     }
 }

@@ -1,17 +1,16 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 
 <head>
-	<meta charset="utf-8" />
 	<title>JavaScript Interpreter</title>
 	<link rel="icon" href="Resources/Images/favicon.png">
+	<meta name="robots" content="index, follow">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="JS, JavaScript, code, runer, interpreter">
 	<meta name="description" content="Programming on JavaScript anywhere, nothing to install, works in any browser.">
-
 	<link rel="manifest" href="Resources/manifest.json">
-
 	<link rel="stylesheet" href="Resources/CSS/style.css">
-
-	<script src="Resources/JS/jquery-3.2.1.min.js" defer></script>
 	<script src="Resources/JS/cookie.js" defer></script>
 	<script src="Resources/JS/application.js" defer></script>
 </head>
@@ -20,9 +19,11 @@
 	<noscript>
 		<h1>Your browser does not support JavaScript! Or it's not enabled. Please fix it and come back.</h1>
 	</noscript>
-	<div class="wrapper">
-		<h3>Welcome to JavaScript Interpreter! Type your code into the left text area and click &laquo;Run code&raquo;!
-			<br>If you wish, you can &laquo;Clear left area&raquo; or &laquo;Clear right area&raquo;. Also you can &laquo;Download code&raquo;.</h3>
+	<div class="container">
+		<header>
+			<h3>Welcome to JavaScript Interpreter!</h3>
+			<h4>Type your code into the left text area and click &laquo;Run code&raquo;!</h>
+		</header>
 		<div class="buttons-bar">
 			<button id="run-code">Run code</button>
 			<button id="save-code">Save code</button>
@@ -34,8 +35,8 @@
 				<b id="completion-time">None</b>.</span>
 		</div>
 		<div class="area-wrapper">
-			<textarea placeholder="// Type your code here..." spellcheck="false" rows="28" autofocus name="code-input" id="left-textarea"></textarea>
-			<textarea placeholder="// Here will be the result or error message..." rows="28" spellcheck="false" name="code-output" readonly
+			<textarea placeholder="// Type your code here..." spellcheck="false" rows="26" autofocus name="code-input" id="left-textarea"></textarea>
+			<textarea placeholder="// Here will be the result or error message..." rows="26" spellcheck="false" name="code-output" readonly
 			    id="right-textarea"></textarea>
 			<div class="clearfix"></div>
 		</div>
@@ -47,9 +48,9 @@
 			<p class="code-wrap bold left-margin_1lvl">writeln(text);</p>
 			<p class="left-margin left-margin_2lvl">Writes
 				<i class="code-wrap">text</i> to the right text area from a new line.</p>
-			<span class="pre-author">
+			<address>
 				<a target="_blank" rel="noopener" href="https://github.com/F1amy" class="author">Created by @f1amy</a>
-			</span>
+			</address>
 		</div>
 	</div>
 </body>
