@@ -22,6 +22,19 @@ noscript h1 {
     text-align: center;
 }
 
+label {
+    display: none;
+}
+
+label[for='left-textarea'] {
+    float: left;
+    
+}
+
+label[for='right-textarea'] {
+    float: right;
+}
+
 .buttons-bar {
     width: calc(100% - 14px);
     margin-top: 10px;
