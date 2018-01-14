@@ -23,7 +23,7 @@
 	<div class="container">
 		<header>
 			<h3>Welcome to JavaScript Interpreter!</h3>
-			<h4>Type your code into the left text area and click &laquo;Run code&raquo;!</h>
+			<h4>Type your code into the left text area and click &laquo;Run code&raquo;!</h4>
 		</header>
 		<div class="buttons-bar">
 			<button id="run-code">Run code</button>
@@ -32,15 +32,14 @@
 			<button id="clear-left-area">Clear left textarea</button>
 			<button id="clear-right-area">Clear right textarea</button>
 			<button id="download-code">Download code</button>
-			<span>Last completion time:
+			<span>Last&nbsp;completion&nbsp;time:
 				<b id="completion-time">None</b>.</span>
 		</div>
 		<div class="area-wrapper">
 			<label for="left-textarea">Left text area</label>
 			<label for="right-textarea">Right text area</label>
-			<textarea placeholder="// Type your code here..." spellcheck="false" rows="26" autofocus name="code-input" id="left-textarea"></textarea>
-			<textarea placeholder="// Here will be the result or error message..." rows="26" spellcheck="false" name="code-output" readonly
-			    id="right-textarea"></textarea>
+			<textarea placeholder="// Type your code here..." spellcheck="false" autofocus name="code-input" id="left-textarea"></textarea>
+			<textarea placeholder="// Here will be the result or error message..." spellcheck="false" name="code-output" readonly id="right-textarea"></textarea>
 			<div class="clearfix"></div>
 		</div>
 		<div class="info">

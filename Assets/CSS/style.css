@@ -28,7 +28,6 @@ label {
 
 label[for='left-textarea'] {
     float: left;
-    
 }
 
 label[for='right-textarea'] {
@@ -39,7 +38,7 @@ label[for='right-textarea'] {
     width: calc(100% - 14px);
     margin-top: 10px;
     margin-bottom: 10px;
-    padding: 10px 0 10px 10px;
+    padding: 10px 0 5px 10px;
     border: 2px solid rgba(211, 211, 211, .9);
     background-color: rgba(255, 255, 255, .9);
 }
@@ -50,7 +49,8 @@ label[for='right-textarea'] {
 }
 
 .buttons-bar button {
-    margin-right: 10px;
+    margin-right: 5px;
+    margin-bottom: 5px;
     background-color: rgba(255, 255, 255, .9);
     border: 2px solid rgba(128, 128, 128, .9);
     padding: 5px;
@@ -98,17 +98,16 @@ address {
     resize: vertical;
     caret-color: rgba(135, 207, 235, .95);
     width: calc(50% - 30px);
-    min-height: 307px;
-    max-height: 499px;
-    height: auto;
+    min-height: 135px;
+    height: 55.5vh;
 }
 
 ::selection {
     background-color: rgba(132, 204, 249, .9);
 }
 
-.author:focus,
 button:focus,
+.author:focus,
 textarea:focus {
     outline: none;
     border: 2px solid rgba(0, 0, 0, .9);
