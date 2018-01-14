@@ -99,7 +99,7 @@ address {
     caret-color: rgba(135, 207, 235, .95);
     width: calc(50% - 30px);
     min-height: 135px;
-    height: 55.5vh;
+    height: 53.8vh;
 }
 
 ::selection {
