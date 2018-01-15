@@ -1,4 +1,9 @@
-// return cookie with name 'name', if it exist, if not, then return undefined
+/**
+ * Function gets cookie by name.
+ * 
+ * @param {any} name 
+ * @returns 
+ */
 function getCookie(name) {
     let matches = document.cookie.match(new RegExp(
         "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
@@ -6,8 +11,13 @@ function getCookie(name) {
     return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
-// set cookie with name 'name' and value 'value'
-// options - object with properties cookie (expires, path, domain, secure)
+/**
+ * Function sets a cookie with following params:
+ * 
+ * @param {any} name 
+ * @param {any} value 
+ * @param {any} options 
+ */
 function setCookie(name, value, options) {
     options = options || {};
 
@@ -37,7 +47,11 @@ function setCookie(name, value, options) {
     document.cookie = updatedCookie;
 }
 
-// deletes cookie with name 'name'
+/**
+ * Function deletes cookie by name.
+ * 
+ * @param {any} name 
+ */
 function deleteCookie(name) {
     setCookie(name, "", {
         expires: -1

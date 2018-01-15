@@ -81,6 +81,10 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+/**
+ * Function saves JS code to cookies from the
+ * left text area if it's already don't.
+ */
 function SaveJSCodeToCookie() {
     let code = document.getElementById('left-textarea').value;
 
@@ -98,6 +102,10 @@ function SaveJSCodeToCookie() {
     }
 }
 
+/**
+ * Function restores JS code from cookies and places 
+ * it into left text area if it's not undefined and empty.
+ */
 function RestoreJSCodeFromCookie() {
     let code = getCookie('jscode');
 
@@ -109,14 +117,28 @@ function RestoreJSCodeFromCookie() {
     }
 }
 
+/**
+ * Function writes given text to the right text area.
+ * 
+ * @param {any} text 
+ */
 function write(text) {
     document.getElementById('right-textarea').value += `${text}`;
 }
 
+/**
+ * Function writes given text to the right text area
+ * and after that places the '\n' symbol same way.
+ * @param {any} text 
+ */
 function writeln(text) {
     document.getElementById('right-textarea').value += `${text}\n`;
 }
 
+/**
+ * Function clears all the text in the right text area if it's not empty.
+ * 
+ */
 function ClearRightArea() {
     let rightTextArea = document.getElementById('right-textarea');
 
