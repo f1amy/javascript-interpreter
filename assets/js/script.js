@@ -9,7 +9,7 @@ function storeJSCode() {
 
 function restoreJSCode() {
     document.getElementById("left-textarea").value = decodeURIComponent(
-        localStorage.getItem("jsCode")
+        localStorage.getItem("jsCode") || ""
     );
 }
 
@@ -26,13 +26,9 @@ function clearRightArea() {
 }
 
 restoreJSCode();
-
 window.onbeforeunload = storeJSCode;
-
 document.getElementById("save-code").onclick = storeJSCode;
-
 document.getElementById("restore-code").onclick = restoreJSCode;
-
 document.getElementById("clear-right-area").onclick = clearRightArea;
 
 document.getElementById("left-textarea").onkeydown = function(event) {
@@ -64,10 +60,8 @@ document.getElementById("run-code").onclick = function() {
     }
 
     timeSpent = performance.now() - timeSpent;
-
     document.getElementById("completion-time").innerHTML =
         timeSpent.toFixed(3) + "ms";
-
     document.getElementById("right-textarea").value += returnedValue;
 };
 
@@ -83,15 +77,16 @@ document.getElementById("clear-left-area").onclick = function() {
 };
 
 document.getElementById("download-code").onclick = function() {
-    const fileContent = document.getElementById("left-textarea").value;
-    let fileLink = document.createElement("a");
+    let fileLink = window.document.createElement("a");
 
-    fileLink.href = URL.createthisURL(
-        new Blob([fileContent], {
+    fileLink.href = window.URL.createObjectURL(
+        new Blob([document.getElementById("left-textarea").value], {
             type: "text/javascript"
         })
     );
 
-    fileLink.download = "My JavaScript code.js";
+    fileLink.download = "JavaScript code.js";
+    document.body.appendChild(fileLink);
     fileLink.click();
+    document.body.removeChild(fileLink);
 };
