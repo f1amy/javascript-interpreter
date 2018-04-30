@@ -1,29 +1,16 @@
 "use strict";
 
 function storeJSCode() {
-    const code = encodeURIComponent(
-        document.getElementById("left-textarea").value
+    localStorage.setItem(
+        "jsCode",
+        encodeURIComponent(document.getElementById("left-textarea").value)
     );
-
-    if (code !== localStorage.getItem("jscode")) {
-        localStorage.setItem("jscode", code);
-
-        console.log("Code stored successfully.");
-    } else {
-        console.log("Code already stored.");
-    }
 }
 
 function restoreJSCode() {
-    const code = decodeURIComponent(localStorage.getItem("jscode"));
-
-    if (code !== undefined && code !== "") {
-        document.getElementById("left-textarea").value = code;
-
-        console.log("Code restored successfully.");
-    } else {
-        console.log("No code found for restore.");
-    }
+    document.getElementById("left-textarea").value = decodeURIComponent(
+        localStorage.getItem("jsCode")
+    );
 }
 
 function write(text) {
@@ -55,41 +42,33 @@ document.getElementById("left-textarea").onkeydown = function(event) {
 
     event.preventDefault();
 
-    const object = this;
-    const start = object.selectionStart;
-    const end = object.selectionEnd;
-    const before = object.value.substring(0, start);
-    const after = object.value.substring(end, object.value.length);
+    const start = this.selectionStart;
 
-    object.value = before + "\t" + after;
-    object.setSelectionRange(start + 1, start + 1);
+    this.value =
+        this.value.substring(0, start) +
+        "\t" +
+        this.value.substring(this.selectionEnd, this.value.length);
+    this.setSelectionRange(start + 1, start + 1);
 };
 
 document.getElementById("run-code").onclick = function() {
-    const leftTextArea = document.getElementById("left-textarea");
-    let rightTextArea = document.getElementById("right-textarea");
+    clearRightArea();
 
-    if (leftTextArea.value !== "") {
-        try {
-            clearRightArea();
+    let returnedValue;
+    let timeSpent = performance.now();
 
-            let timeSpent = performance.now();
-            const result = eval(leftTextArea.value);
-
-            timeSpent = performance.now() - timeSpent;
-
-            document.getElementById("completion-time").innerHTML =
-                timeSpent.toFixed(3) + "ms";
-
-            if (result !== undefined) {
-                rightTextArea.value += result;
-            }
-        } catch (Exception) {
-            rightTextArea.value += `Uncaught ${Exception.name}: ${
-                Exception.message
-            }.`;
-        }
+    try {
+        returnedValue = eval(document.getElementById("left-textarea").value);
+    } catch (exception) {
+        returnedValue = `Uncaught ${exception.name}: ${exception.message}.`;
     }
+
+    timeSpent = performance.now() - timeSpent;
+
+    document.getElementById("completion-time").innerHTML =
+        timeSpent.toFixed(3) + "ms";
+
+    document.getElementById("right-textarea").value += returnedValue;
 };
 
 document.getElementById("clear-left-area").onclick = function() {
@@ -98,26 +77,21 @@ document.getElementById("clear-left-area").onclick = function() {
             "left text area?\nAll your code will be lost!"
     );
 
-    if (answer === true) {
+    if (answer) {
         document.getElementById("left-textarea").value = "";
     }
 };
 
 document.getElementById("download-code").onclick = function() {
-    const leftTextArea = document.getElementById("left-textarea");
+    const fileContent = document.getElementById("left-textarea").value;
+    let fileLink = document.createElement("a");
 
-    if (leftTextArea.value !== "") {
-        const fileContent = leftTextArea.value;
-        const fileName = "Your JavaScript code.js";
-        let fileLink = document.createElement("a");
+    fileLink.href = URL.createthisURL(
+        new Blob([fileContent], {
+            type: "text/javascript"
+        })
+    );
 
-        fileLink.href = URL.createObjectURL(
-            new Blob([fileContent], {
-                type: "text/javascript"
-            })
-        );
-
-        fileLink.download = fileName;
-        fileLink.click();
-    }
+    fileLink.download = "My JavaScript code.js";
+    fileLink.click();
 };
